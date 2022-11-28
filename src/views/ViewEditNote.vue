@@ -9,7 +9,7 @@
     <template #buttons>
       <button
          @click="$router.back()"
-          class="button is-link has-light"
+          class="button is-link has-light mr-2"
         >Cancel</button>
       <button
           class="button is-link has-background-link"
