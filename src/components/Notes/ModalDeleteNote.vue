@@ -15,7 +15,10 @@
       <button 
       @click="closeModal"
       class="button">Cancel</button>
-      <button class="button is-danger">Delete</button>
+      
+      <button
+        @click="storeNotes.deleteNote(props.noteId)"
+        class="button is-danger">Delete</button>
     </footer>
   </div>
 </div>
@@ -24,11 +27,18 @@
 <script setup>
 import { onClickOutside } from '@vueuse/core'
 import { ref, onMounted, onUnmounted } from 'vue';
+import { useStoreNotes } from '../../stores/storeNotes';
+
+const storeNotes = useStoreNotes(); 
 
   const props = defineProps({
     modelValue: {
       type: Boolean,
       default: false
+    },
+    noteId: {
+      type: String,
+      required: true
     }
   });
 
