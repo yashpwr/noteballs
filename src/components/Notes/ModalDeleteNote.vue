@@ -23,7 +23,7 @@
 
 <script setup>
 import { onClickOutside } from '@vueuse/core'
-import { ref } from 'vue';
+import { ref, onMounted, onUnmounted } from 'vue';
 
   const props = defineProps({
     modelValue: {
@@ -41,5 +41,18 @@ import { ref } from 'vue';
   const modalCardRef = ref(null)
 
   onClickOutside(modalCardRef, closeModal)
+
+  const handleKeyboard = e => {
+    console.log('close it');
+    if(e.key === 'Escape') closeModal()
+  }
+
+  onMounted(() => {
+    document.addEventListener('keyup',handleKeyboard )
+  })
+
+  onUnmounted(() => {
+    document.removeEventListener('keyup',handleKeyboard )
+  })
 
 </script>
