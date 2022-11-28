@@ -15,7 +15,6 @@
     </template>
   </AddEditNote>
 
-  <pre>{{newNote}}</pre>
   <Note
     v-for="note in storeNotes.notes" 
     :key="note.id"
