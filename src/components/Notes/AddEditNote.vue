@@ -6,6 +6,7 @@
   <div class="field">
     <div class="control">
       <textarea 
+        maxlength="100"
         v-autofocus
         :value="modelValue" 
         @input="$emit('update:modelValue', $event.target.value)"
