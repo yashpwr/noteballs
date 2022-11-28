@@ -3,6 +3,7 @@
 
   <AddEditNote
     v-model="newNote"
+    ref="addEditNoteRef"
   >
     <template #buttons>
       <button
@@ -32,13 +33,11 @@ import { useStoreNotes } from '../stores/storeNotes';
 const storeNotes = useStoreNotes();
 
 const newNote = ref('');
-const newNoteRef = ref('');
+const addEditNoteRef = ref(null)
 
 const addNote = () => {
- 
   storeNotes.addNote(newNote.value);
-
   newNote.value = "";
-  newNoteRef.value.focus()
+  addEditNoteRef.value.focusTextarea();
 } 
 </script>
