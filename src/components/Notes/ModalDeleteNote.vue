@@ -1,7 +1,7 @@
 <template>
 <div class="modal is-active">
   <div class="modal-background"></div>
-  <div class="modal-card">
+  <div class="modal-card" ref="modalCardRef">
     <header class="modal-card-head">
       <p class="modal-card-title">Delete Note?</p>
       <button
@@ -22,6 +22,9 @@
 </template>
 
 <script setup>
+import { onClickOutside } from '@vueuse/core'
+import { ref } from 'vue';
+
   const props = defineProps({
     modelValue: {
       type: Boolean,
@@ -34,4 +37,9 @@
   const closeModal = () => {
     emit('update:modelValue', false)
   }
+
+  const modalCardRef = ref(null)
+
+  onClickOutside(modalCardRef, closeModal)
+
 </script>
