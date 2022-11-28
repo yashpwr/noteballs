@@ -27,6 +27,11 @@
   
   <AddEditNote>
     <template #buttons>
+      <button
+          :disabled="!newNote" 
+          @click="addNote" 
+          class="button is-link has-background-success"
+        >Add New Note</button>
     </template>
   </AddEditNote>
 
@@ -43,6 +48,7 @@
 import { ref } from 'vue';
 import Note from '../components/Notes/Notes.vue'
 import AddEditNote from '../components/Notes/AddEditNote.vue'
+
 import { useStoreNotes } from '../stores/storeNotes';
 
 const storeNotes = useStoreNotes();
