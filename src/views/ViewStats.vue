@@ -31,6 +31,6 @@
 
   const loveNoteBalls = ref('');
 
-  useWatchCharacters(loveNoteBalls)
+  useWatchCharacters(loveNoteBalls, 50)
   const storeNotes = useStoreNotes();
 </script>
