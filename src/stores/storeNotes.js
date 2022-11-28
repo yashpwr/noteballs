@@ -19,5 +19,17 @@ export const useStoreNotes = defineStore('storeNotes', {
         }
       ] 
     }
+  },
+  actions: {
+    addNote(newNoteContent){
+      
+      let id = new Date().getTime();
+      let note = {
+        id: id.toString(),
+        content: newNoteContent
+      }
+      
+      this.notes.unshift(note);
+    }
   }
 })

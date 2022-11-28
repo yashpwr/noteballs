@@ -46,14 +46,9 @@ const newNote = ref('');
 const newNoteRef = ref('');
 
 const addNote = () => {
-  let id = new Date().getTime();
+ 
+  storeNotes.addNote(newNote.value);
 
-  let note = {
-    id: id.toString(),
-    content: newNote.value
-  }
-
-  notes.value.unshift(note);
   newNote.value = "";
   newNoteRef.value.focus()
 } 
