@@ -3,7 +3,10 @@
 
   <div class="field">
     <div class="control">
-      <textarea class="textarea" placeholder="Add a new note" ref="newNoteRef" />
+      <textarea 
+      :value="modelValue" 
+      @input="$emit('update:modelValue', $event.target.value)"
+      class="textarea" placeholder="Add a new note" ref="newNoteRef" />
     </div>
   </div>
 
@@ -16,3 +19,14 @@
 </div>
 
 </template>
+
+<script setup>
+  const props = defineProps({
+    modelValue: {
+      type: String,
+      required: true
+    }
+  })
+
+  const emit = defineEmits(['update:modelValue'])
+</script>
