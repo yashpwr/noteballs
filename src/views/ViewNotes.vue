@@ -1,7 +1,7 @@
 <template>
 <div class="notes">
 
-  <div class="card has-background-success-dark p-4 mb-5">
+  <!-- <div class="card has-background-success-dark p-4 mb-5">
 
     <div class="field">
       <div class="control">
@@ -23,7 +23,12 @@
         >Add New Note</button>
       </div>
     </div>
-  </div>
+  </div> -->
+  
+  <AddEditNote>
+    <template #buttons>
+    </template>
+  </AddEditNote>
 
   
   <Note
@@ -37,6 +42,7 @@
 <script setup>
 import { ref } from 'vue';
 import Note from '../components/Notes/Notes.vue'
+import AddEditNote from '../components/Notes/AddEditNote.vue'
 import { useStoreNotes } from '../stores/storeNotes';
 
 const storeNotes = useStoreNotes();
