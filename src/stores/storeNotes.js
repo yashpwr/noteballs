@@ -32,7 +32,6 @@ export const useStoreNotes = defineStore('storeNotes', {
 
     async getNotes(){
       this.notesLoaded = false;
-      if (getNotesSnapshot) getNotesSnapshot() //unsubscribe from any active listner
       
       getNotesSnapshot = onSnapshot(notesCollectionQuery, (querySnapshot) => {
         let notes = [];
@@ -52,6 +51,8 @@ export const useStoreNotes = defineStore('storeNotes', {
 
     clearNotes(){
       this.notes = [];
+      if (getNotesSnapshot) getNotesSnapshot() //unsubscribe from any active listner
+
     },
 
     async addNote(newNoteContent){
