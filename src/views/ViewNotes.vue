@@ -27,6 +27,12 @@
       :note="note"
     />
   </template>
+
+  <div
+    class="is-size-4 has-text-centered has-text-grey-light is-family-monospace py-6" 
+    v-if="!storeNotes.notes.length">
+    No notes here yet...
+  </div>
 </div>
 </template>
 
