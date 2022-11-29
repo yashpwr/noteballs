@@ -52,6 +52,10 @@ export const useStoreNotes = defineStore('storeNotes', {
       // unsubscribe()
     },
 
+    clearNotes(){
+      this.notes = [];
+    },
+
     async addNote(newNoteContent){
 
       const docRef = await addDoc(notesCollectionRef, {
