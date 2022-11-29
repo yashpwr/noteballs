@@ -14,12 +14,19 @@
         >Add New Note</button>
     </template>
   </AddEditNote>
+  
+  <progress 
+    v-if="!storeNotes.notesLoaded"
+    class="progress is-small is-success" 
+    max="100"/>
 
-  <Note
-    v-for="note in storeNotes.notes" 
-    :key="note.id"
-    :note="note"
-  />
+  <template v-else>
+    <Note
+      v-for="note in storeNotes.notes" 
+      :key="note.id"
+      :note="note"
+    />
+  </template>
 </div>
 </template>
 
