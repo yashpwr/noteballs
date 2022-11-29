@@ -8,7 +8,7 @@ import {
   query, orderBy, limit
 } from 'firebase/firestore';
 
-const notesCollectionRef = collection(db, 'notes')
+const notesCollectionRef = collection(db, 'users', 'rSFMgabdOQaCJjy402IirUUuQyr2', 'notes')
 const notesCollectionQuery = query(notesCollectionRef, orderBy('date', 'desc'));
 
 
