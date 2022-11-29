@@ -7,9 +7,10 @@ import {
   deleteDoc, updateDoc, 
   query, orderBy, limit
 } from 'firebase/firestore';
+import { useStoreAuth } from '../stores/storeAuth';
 
-const notesCollectionRef = collection(db, 'users', 'rSFMgabdOQaCJjy402IirUUuQyr2', 'notes')
-const notesCollectionQuery = query(notesCollectionRef, orderBy('date', 'desc'));
+let notesCollectionRef
+let notesCollectionQuery
 
 
 export const useStoreNotes = defineStore('storeNotes', {
@@ -20,6 +21,14 @@ export const useStoreNotes = defineStore('storeNotes', {
     }
   },
   actions: {
+
+    init(){
+      const storeAuth = useStoreAuth();
+
+      notesCollectionRef = collection(db, 'users', storeAuth.user.id, 'notes')
+      notesCollectionQuery = query(notesCollectionRef, orderBy('date', 'desc'));
+      this.getNotes()
+    },
 
     async getNotes(){
       this.notesLoaded = false;
